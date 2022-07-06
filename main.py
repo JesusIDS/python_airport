@@ -17,5 +17,4 @@ def peticion(datos):
         response = requests.post("http://localhost:8090/apiv1/clientes/add", json = datas)
         print("Peticion Realizada Correctamente")
 
-
 peticion(abrir_archivo())
