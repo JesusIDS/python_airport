@@ -1,4 +1,5 @@
 from ClaseEmpleado import *
+import requests
 
 def abrir_archivo():
     archivo = open("Clientes.txt")
@@ -11,7 +12,10 @@ def abrir_archivo():
 def peticion(datos):
     for n in datos:
         empleado = Empleado(n[0],n[1],n[2],n[3],n[4])
-        print(empleado)
+        datas = empleado.get_dicc()
+        print(datas)
+        resp = requests.post("http://localhost:8090/apiv1/clientes/add", data = datas)
+        print("Peticion Realizada Correctamente")
 
 
 peticion(abrir_archivo())

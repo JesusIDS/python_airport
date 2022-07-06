@@ -6,7 +6,11 @@ class Empleado:
         self.idioma = idioma
         self.aeropuerto = aeropuerto
 
-    def __str__(self):
-        return "{\n'name' : '" + self.nombre + "',\n" + "'surname' : '" + self.apellido + "',\n" + \
-        "'country' : '" + self.pais + "',\n" + "'language' : '" + self.idioma + "',\n" + \
-        "'airport' : '" + self.aeropuerto + "'\n}"
+    def get_dicc(self):
+        language = {'name' : self.idioma}
+        airports = {'name' : self.aeropuerto}
+        country = {'name' : self.pais, 'airportsCountry' : [airports]}
+        dicc = {'surname' : self.apellido, 'firstname' : self.nombre, 'languageSpeaks' : [language],
+                'countryWork' : country}
+        return dicc
+
